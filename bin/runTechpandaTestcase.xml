@@ -3,7 +3,7 @@
 
   <test name="Run on Firefox browser">
     <classes>
-      <class name="com.tech.panda.account.Account_01_Register"/>
+      <class name="com.tech.panda.account.Level_03_Page_Object_Pattern"/>
     </classes>
   </test> 
 </suite> 
