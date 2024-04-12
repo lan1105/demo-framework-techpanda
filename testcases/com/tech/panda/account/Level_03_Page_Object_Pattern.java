@@ -40,7 +40,7 @@ public class Level_03_Page_Object_Pattern {
 
 
 	@Test
-	public void TC_01_LoginWithEmptyEmailAndPassword() {
+	public void TC_01_Login_With_Empty_Email_And_Password() {
 		homePage.clickToMyAccountLink();
 		//tu HomePage -> click My Account -> Login Page
 		//khoi tao LoginPage
@@ -56,7 +56,7 @@ public class Level_03_Page_Object_Pattern {
 
 
 	@Test
-	public void TC_02_LoginWithInvalidEmail() {
+	public void TC_02_Login_With_Invalid_Email() {
 		homePage.clickToMyAccountLink();
 		loginPage = new LoginPageObject(driver);
 		loginPage.inputToEmailAddressTextbox("123@45.789");
@@ -67,7 +67,7 @@ public class Level_03_Page_Object_Pattern {
 
 	
 	@Test(description = "Email not exist in application")
-	public void TC_03_LoginWithIncorrectEmail() {
+	public void TC_03_Login_With_Incorrect_Email() {
 		homePage.clickToMyAccountLink();
 		loginPage = new LoginPageObject(driver);
 		loginPage.inputToEmailAddressTextbox("auto" + randomNumber() + "@live.com");
@@ -78,7 +78,7 @@ public class Level_03_Page_Object_Pattern {
 	}
 
 	@Test(description = "Password less than 6 characters")
-	public void TC_04_LoginWithInValidPassword() {
+	public void TC_04_Login_With_InValid_Password() {
 		homePage.clickToMyAccountLink();
 		loginPage = new LoginPageObject(driver);
 		loginPage.inputToEmailAddressTextbox("auto" + randomNumber() + "@live.com");
@@ -88,18 +88,18 @@ public class Level_03_Page_Object_Pattern {
 	}
 
 	@Test
-	public void TC_05_LoginWithIncorrectPassword() {
+	public void TC_05_Login_With_Incorrect_Password() {
 		homePage.clickToMyAccountLink();
 		loginPage = new LoginPageObject(driver);
 		loginPage.inputToEmailAddressTextbox("auto" + randomNumber() + "@live.com");
-		loginPage.inputToPasswordTextbox(randomNumber() + "");
+		loginPage.inputToPasswordTextbox(String.valueOf(randomNumber()));
 		loginPage.clickToLoginButton();
 		Assert.assertEquals(loginPage.getAddressPasswordIncorrectMsg(), "Invalid login or password.");
 
 	}
 
 	@Test
-	public void TC_06_LoginWithValidEmailAndPassword() {
+	public void TC_06_Login_With_Valid_Email_And_Password() {
 		homePage.clickToMyAccountLink();
 		loginPage = new LoginPageObject(driver);
 		loginPage.inputToEmailAddressTextbox("automation_test@hotmail.com");
@@ -107,7 +107,8 @@ public class Level_03_Page_Object_Pattern {
 		loginPage.clickToLoginButton();
 		
 		myDashboardPage = new MyDashboardPageObject(driver);
-		Assert.assertTrue(myDashboardPage.checkDisplayContactInfor());
+		Assert.assertTrue(myDashboardPage.isContactInforDisplayed("Auto Testing"));
+		Assert.assertTrue(myDashboardPage.isContactInforDisplayed("automation_test@hotmail.com"));
 
 	}
 	

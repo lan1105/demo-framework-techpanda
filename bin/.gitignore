@@ -1,4 +1,13 @@
-/pageObjects/
-/pageUI/
 /com/
 /commons/
+/env-dev.properties
+/env-staging.properties
+/env-test.properties
+/factoryBrowser/
+/factoryEnvironment/
+/log4j.xml
+/pageObjects/
+/pageUI/
+/reportConfig/
+/runTechpandaTestcase.xml
+/utilities/

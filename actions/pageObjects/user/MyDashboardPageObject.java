@@ -7,12 +7,15 @@ import pageUI.user.MyDashboardPageUI;
 
 public class MyDashboardPageObject extends BasePage{
 	WebDriver driver;
+	
 	public MyDashboardPageObject(WebDriver driver) {
 		this.driver = driver;
 	}
-	public boolean checkDisplayContactInfor() {
+	
+	public boolean isContactInforDisplayed(String contactInfor) {
 		waitForElementVisible(driver, MyDashboardPageUI.CONTACT_INFOR_TEXT);
-		return getElementText(driver, MyDashboardPageUI.CONTACT_INFOR_TEXT).contains("Auto Testing");
+		String actualContactInforText = getElementText(driver, MyDashboardPageUI.CONTACT_INFOR_TEXT);
+		return actualContactInforText.contains(contactInfor);
 	}
 
 }
