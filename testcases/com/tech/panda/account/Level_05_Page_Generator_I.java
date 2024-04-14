@@ -54,7 +54,6 @@ public class Level_05_Page_Generator_I extends BaseTest{
 		Assert.assertEquals(loginPage.getPasswordEmptyErrorMsg(), "This is a required field.");
 	}
 
-
 	@Test
 	public void TC_02_Login_With_Invalid_Email() {
 		loginPage = homePage.clickToMyAccountLink();
@@ -64,7 +63,6 @@ public class Level_05_Page_Generator_I extends BaseTest{
 		loginPage.clickToLoginButton();
 		Assert.assertEquals(loginPage.getEmailAddressInvalidMsg(), "Please enter a valid email address. For example johndoe@domain.com.");
 	}
-
 	
 	@Test(description = "Email not exist in application")
 	public void TC_03_Login_With_Incorrect_Email() {
@@ -95,7 +93,6 @@ public class Level_05_Page_Generator_I extends BaseTest{
 
 	}
 	
-
 	@Test
 	public void TC_06_Login_With_Valid_Email_And_Password() {
 		loginPage = homePage.clickToMyAccountLink();
@@ -117,18 +114,12 @@ public class Level_05_Page_Generator_I extends BaseTest{
 		accountInformationPage.inputToCurrentPasswordField("123456789");
 		myDashboardPage = accountInformationPage.clickToSaveButton();
 		
-		Assert.assertTrue(myDashboardPage.isAccountInformationMessageDisplayed());
-		
+		Assert.assertTrue(myDashboardPage.isAccountInformationMessageDisplayed());		
 	}
 	
-	
-
-
 	@AfterClass
 	public void afterClass() {
 		driver.quit();
 	}
-
-
 
 }
