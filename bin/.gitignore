@@ -1,13 +1,5 @@
-/com/
 /commons/
-/env-dev.properties
-/env-staging.properties
-/env-test.properties
 /factoryBrowser/
-/factoryEnvironment/
-/log4j.xml
+/com/
 /pageObjects/
 /pageUI/
-/reportConfig/
-/runTechpandaTestcase.xml
-/utilities/

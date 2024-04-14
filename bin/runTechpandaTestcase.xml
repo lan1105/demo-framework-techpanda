@@ -4,16 +4,9 @@
 	<test name="Run on FIREFOX browser">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.tech.panda.account.Level_04_Multiple_Browsers" />
+			<class name="com.tech.panda.account.Level_05_Page_Generator_I" />
 		</classes>
 	</test>
-	
-		<test name="Run on CHROME browser">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="com.tech.panda.account.Level_04_Multiple_Browsers" />
-		</classes>
-	</test>
-	
+
 
 </suite> 

@@ -18,4 +18,18 @@ public class MyDashboardPageObject extends BasePage{
 		return actualContactInforText.contains(contactInfor);
 	}
 
+	public AccountInformationPageObject clickToAccountInformationLink() {
+		waitForElementClickable(driver, MyDashboardPageUI.ACCOUNT_INFORMATION_LINK);
+		clickToElement(driver, MyDashboardPageUI.ACCOUNT_INFORMATION_LINK);
+		return PageGeneratorManager.getAccountInformationPage(driver);
+		
+	}
+
+
+	public boolean isAccountInformationMessageDisplayed() {
+		waitForElementVisible(driver, MyDashboardPageUI.ACCOUNT_INFORMATION_SAVED_MESSAGE);
+		return isElementDisplayed(driver, MyDashboardPageUI.ACCOUNT_INFORMATION_SAVED_MESSAGE);
+	}
+
+
 }
