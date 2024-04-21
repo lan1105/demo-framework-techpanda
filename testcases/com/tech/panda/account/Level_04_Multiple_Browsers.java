@@ -19,15 +19,15 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import commons.BasePage;
 import commons.BaseTest;
-import pageObjects.user.HomePageObject;
-import pageObjects.user.LoginPageObject;
+import pageObjects.user.UserHomePageObject;
+import pageObjects.user.UserLoginPageObject;
 import pageObjects.user.MyDashboardPageObject;
 
 public class Level_04_Multiple_Browsers extends BaseTest{
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
-	HomePageObject homePage; //bien homPage dai dien cho class HomePageObject
-	LoginPageObject loginPage;
+	UserHomePageObject homePage; //bien homPage dai dien cho class HomePageObject
+	UserLoginPageObject loginPage;
 	MyDashboardPageObject myDashboardPage;
 	
 	@Parameters({"browser"})
@@ -37,7 +37,7 @@ public class Level_04_Multiple_Browsers extends BaseTest{
 
 		//1 - Mo URL di den trang HomePage
 		//2 - Muon dung duoc class HomePageObject thi phai khoi tao no len
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 	}
 
 
@@ -46,7 +46,7 @@ public class Level_04_Multiple_Browsers extends BaseTest{
 		homePage.clickToMyAccountLink();
 		//tu HomePage -> click My Account -> Login Page
 		//khoi tao LoginPage
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 		
 		loginPage.inputToEmailAddressTextbox("");
 		loginPage.inputToPasswordTextbox("");
@@ -60,7 +60,7 @@ public class Level_04_Multiple_Browsers extends BaseTest{
 	@Test
 	public void TC_02_Login_With_Invalid_Email() {
 		homePage.clickToMyAccountLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 		loginPage.inputToEmailAddressTextbox("123@45.789");
 		loginPage.inputToPasswordTextbox("123456789");
 		loginPage.clickToLoginButton();
@@ -71,7 +71,7 @@ public class Level_04_Multiple_Browsers extends BaseTest{
 	@Test(description = "Email not exist in application")
 	public void TC_03_Login_With_Incorrect_Email() {
 		homePage.clickToMyAccountLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 		loginPage.inputToEmailAddressTextbox("auto" + randomNumber() + "@live.com");
 		loginPage.inputToPasswordTextbox("123456789");
 		loginPage.clickToLoginButton();
@@ -82,7 +82,7 @@ public class Level_04_Multiple_Browsers extends BaseTest{
 	@Test(description = "Password less than 6 characters")
 	public void TC_04_Login_With_InValid_Password() {
 		homePage.clickToMyAccountLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 		loginPage.inputToEmailAddressTextbox("auto" + randomNumber() + "@live.com");
 		loginPage.inputToPasswordTextbox("123");
 		loginPage.clickToLoginButton();
@@ -92,7 +92,7 @@ public class Level_04_Multiple_Browsers extends BaseTest{
 	@Test
 	public void TC_05_Login_With_Incorrect_Password() {
 		homePage.clickToMyAccountLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 		loginPage.inputToEmailAddressTextbox("auto" + randomNumber() + "@live.com");
 		loginPage.inputToPasswordTextbox(String.valueOf(randomNumber()));
 		loginPage.clickToLoginButton();
@@ -104,7 +104,7 @@ public class Level_04_Multiple_Browsers extends BaseTest{
 	@Test
 	public void TC_06_Login_With_Valid_Email_And_Password() {
 		homePage.clickToMyAccountLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 		loginPage.inputToEmailAddressTextbox("automation_test@hotmail.com");
 		loginPage.inputToPasswordTextbox("123456789");
 		loginPage.clickToLoginButton();

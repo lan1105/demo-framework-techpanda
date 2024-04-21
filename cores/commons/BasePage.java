@@ -14,6 +14,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObjects.admin.AdminLoginPageObject;
+import pageObjects.navigation.FooterContainerPageObject;
+import pageObjects.user.PageGeneratorManager;
+import pageObjects.user.UserHomePageObject;
+import pageObjects.user.UserLoginPageObject;
+import pageUI.admin.AdminHomePageUI;
+import pageUI.user.UserHomePageUI;
+
 public class BasePage {
 
 	public static BasePage getBasePageInstance() {
@@ -300,7 +308,37 @@ public class BasePage {
 			e.printStackTrace();
 		}
 	}
-	private long longTimeout = 30;
+	
+	public FooterContainerPageObject getFooterContainerPage(WebDriver driver) {
+		return new FooterContainerPageObject(driver);
+		
+	}
+	
+	public UserHomePageObject openUserHomePage(WebDriver driver, String userURL) {
+		openPageURL(driver, userURL);
+		return PageGeneratorManager.getUserHomePage(driver);
+	}
+	
+	public AdminLoginPageObject openAdminLoginPage(WebDriver driver, String adminURL) {
+		openPageURL(driver, adminURL);
+		return PageGeneratorManager.getAdminLoginPage(driver);
+	}
+	
+	public UserHomePageObject clickToUserLogoutLink(WebDriver driver) {
+		waitForElementVisible(driver, UserHomePageUI.HEADER_ACCOUNT_TEXT);
+		clickToElement(driver, UserHomePageUI.HEADER_ACCOUNT_TEXT);
+		waitForElementClickable(driver, UserHomePageUI.HEADER_LOGOUT_BUTTON);
+		clickToElement(driver, UserHomePageUI.HEADER_LOGOUT_BUTTON);
+		return PageGeneratorManager.getUserHomePage(driver);
+	}
+	
+	public AdminLoginPageObject clickToAdminLogoutLink(WebDriver driver) {
+		waitForElementClickable(driver, AdminHomePageUI.LOG_OUT_LINK);
+		clickToElement(driver, AdminHomePageUI.LOG_OUT_LINK);
+		return PageGeneratorManager.getAdminLoginPage(driver);
+	}
+	
+	private long longTimeout = 45;
 	private long shortTimeout = 5;
 
 }

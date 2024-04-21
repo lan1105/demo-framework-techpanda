@@ -3,9 +3,9 @@ package pageObjects.user;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import pageUI.user.HomePageUI;
+import pageUI.user.UserHomePageUI;
 
-public class HomePageObject extends BasePage{
+public class UserHomePageObject extends BasePage{
 	
 	//Ham khoi tao - Constructor
 	//Goi dau tien khi khoi tao 1 class len
@@ -14,14 +14,14 @@ public class HomePageObject extends BasePage{
 	//Co tham so hoac khong co tham so
 	//Map driver giua 2 class voi nhau (Class testcase voi Class hien tai)
 	WebDriver driver;
-	public HomePageObject(WebDriver driver) {
+	public UserHomePageObject(WebDriver driver) {
 		this.driver = driver;
 	}
 
-	public LoginPageObject clickToMyAccountLink() {
-		waitForElementClickable(driver, HomePageUI.MY_ACCOUNT_LINK);
-		clickToElement(driver, HomePageUI.MY_ACCOUNT_LINK);
-		return PageGeneratorManager.getLoginPage(driver);
+	public UserLoginPageObject clickToMyAccountLink() {
+		waitForElementClickable(driver, UserHomePageUI.MY_ACCOUNT_LINK);
+		clickToElement(driver, UserHomePageUI.MY_ACCOUNT_LINK);
+		return PageGeneratorManager.getUserLoginPage(driver);
 		
 	}
 
