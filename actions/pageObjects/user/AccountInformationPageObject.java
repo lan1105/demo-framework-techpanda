@@ -3,27 +3,29 @@ package pageObjects.user;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
+import pageObjects.navigation.SideBarMyDashBoardPageObject;
 import pageUI.user.AccountInformationPageUI;
 
-public class AccountInformationPageObject extends BasePage {
+public class AccountInformationPageObject extends SideBarMyDashBoardPageObject {
 	WebDriver driver;
 	public AccountInformationPageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
-	public void inputToFirstNameField(String firstName) {
+	public void inputToFirstNameField(String editFirstName) {
 		waitForElementVisible(driver, AccountInformationPageUI.FIRST_NAME_FIELD);
-		sendkeyToElement(driver, AccountInformationPageUI.FIRST_NAME_FIELD, firstName);
+		sendkeyToElement(driver, AccountInformationPageUI.FIRST_NAME_FIELD, editFirstName);
 		
 	}
 
-	public void inputToLastNameField(String lastName) {
+	public void inputToLastNameField(String editLastName) {
 		waitForElementVisible(driver, AccountInformationPageUI.LAST_NAME_FIELD);
-		sendkeyToElement(driver, AccountInformationPageUI.LAST_NAME_FIELD, lastName);
+		sendkeyToElement(driver, AccountInformationPageUI.LAST_NAME_FIELD, editLastName);
 		
 	}
-	public void inputToEmailAddressField(String emailAddressField) {
+	public void inputToEmailAddressField(String editEmailAddressField) {
 		waitForElementVisible(driver, AccountInformationPageUI.EMAIL_ADDRESS_FIELD);
-		sendkeyToElement(driver, AccountInformationPageUI.EMAIL_ADDRESS_FIELD, emailAddressField);
+		sendkeyToElement(driver, AccountInformationPageUI.EMAIL_ADDRESS_FIELD, editEmailAddressField);
 		
 	}
 	public void inputToCurrentPasswordField(String currentPassword) {
@@ -31,11 +33,31 @@ public class AccountInformationPageObject extends BasePage {
 		sendkeyToElement(driver, AccountInformationPageUI.CURRENT_PASSWORD_FIELD, currentPassword);
 		
 	}
-	public MyDashboardPageObject clickToSaveButton() {
+	public MyDashBoardPageObject clickToSaveButton() {
 		waitForElementClickable(driver, AccountInformationPageUI.SAVE_BUTTON);
 		clickToElement(driver, AccountInformationPageUI.SAVE_BUTTON);
-		return  new PageGeneratorManager().getMyDashboardPage(driver);
+		return  new PageGeneratorManager().getMyDashBoardPage(driver);
 	}
+	public boolean isFirstNameDisplayed(String fistName) {
+		waitForElementVisible(driver, AccountInformationPageUI.FIRST_NAME_FIELD, fistName);
+		return isElementDisplayed(driver, AccountInformationPageUI.FIRST_NAME_FIELD, fistName);
+	}
+	public boolean isLastNameDisplayed(String lastName) {
+		waitForElementVisible(driver, AccountInformationPageUI.LAST_NAME_FIELD, lastName);
+		return isElementDisplayed(driver, AccountInformationPageUI.LAST_NAME_FIELD, lastName);
+	}
+	public boolean isEmailAddressDisplayed(String emailAddress) {
+		waitForElementVisible(driver, AccountInformationPageUI.EMAIL_ADDRESS_FIELD, emailAddress);
+		return isElementDisplayed(driver, AccountInformationPageUI.EMAIL_ADDRESS_FIELD, emailAddress);
+	}
+
+	public void clear() {
+		waitForElementVisible(driver, AccountInformationPageUI.FIRST_NAME_FIELD);
+		clear();
+		
+	}
+
+
 	
 
 }

@@ -15,8 +15,13 @@ public class PageGeneratorManager {
 		return new UserLoginPageObject(driver);
 	}
 	
-	public static MyDashboardPageObject getMyDashboardPage(WebDriver driver) {
-		return new MyDashboardPageObject(driver);
+	public static UserRegisterPageObject getUserRegisterPage(WebDriver driver) {
+		return new UserRegisterPageObject(driver);
+	}
+	
+	
+	public static MyDashBoardPageObject getMyDashBoardPage(WebDriver driver) {
+		return new MyDashBoardPageObject(driver);
 	}
 	
 	public static AccountInformationPageObject getAccountInformationPage(WebDriver driver) {
@@ -42,6 +47,27 @@ public class PageGeneratorManager {
 	
 	public static AdminHomePageObject getAdminHomePage(WebDriver driver) {
 		return new AdminHomePageObject(driver);
+	}
+
+	public static AddressBookPageObject getAddressBookPage(WebDriver driver) {
+		return new AddressBookPageObject(driver);
+		
+	}
+
+	public static MyOrdersPageObject getMyOrdersPage(WebDriver driver) {
+		return new MyOrdersPageObject(driver);
+	}
+
+	public static BillingAgreementsPageObject getBillingAgreementsPage(WebDriver driver) {
+		return new BillingAgreementsPageObject(driver);
+	}
+
+	public static MyProductReviewsPageObject getMyProductReviewPage(WebDriver driver) {
+		return new MyProductReviewsPageObject(driver);
+	}
+
+	public static MyApplicationsPageObject getMyApplicationsPage(WebDriver driver) {
+		return new MyApplicationsPageObject(driver);
 	}
 
 

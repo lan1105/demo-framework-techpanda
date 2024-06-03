@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="Run All Suites">
+	<suite-files>
+		<suite-file path="runJQueryTestcases.xml" />
+		<suite-file path="runTechpandaTestcase.xml" />
+	</suite-files>
+
+</suite>
