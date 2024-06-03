@@ -1,0 +1,5 @@
+[2024-05-29 05:04:08,152 INFO com.tech.panda.account.User_Register] - ----------------------PASSED----------------------
+[2024-05-29 05:04:08,879 INFO com.tech.panda.account.User_Register] - ----------------------PASSED----------------------
+[2024-05-29 05:04:08,944 INFO com.tech.panda.account.User_Register] - ----------------------PASSED----------------------
+[2024-05-29 05:04:09,006 INFO com.tech.panda.account.User_Register] - ----------------------PASSED----------------------
+[2024-05-29 05:04:10,433 INFO com.tech.panda.account.User_Register] - ----------------------PASSED----------------------

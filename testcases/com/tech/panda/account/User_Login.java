@@ -103,7 +103,6 @@ public class User_Login extends BaseTest {
 
 		ExtentManager.getTest().log(Status.INFO, "Login_03 - Step 05: Verify error message is displayed");
 		verifyEquals(loginPage.getAddressPasswordIncorrectMsg(), "Invalid login or password.");
-
 	}
 
 	@Test(description = "Password less than 6 characters")
